@@ -1,5 +1,7 @@
 package databases;
 
-public class Population {
+import java.util.ArrayList;
 
+public class Population {
+ArrayList<CargoSpaceIndividual> population;
 }

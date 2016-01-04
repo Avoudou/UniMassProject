@@ -1,9 +1,9 @@
 package databases;
 
 public class ShapesDefault {
-
+	private ShapeGenerator shapeGenerator;
+	
 	public ShapesDefault() {
-		// TODO Auto-generated constructor stub
-	}
+		}
 
 }

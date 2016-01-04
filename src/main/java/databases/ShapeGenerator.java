@@ -4,6 +4,7 @@ public class ShapeGenerator {
 
 	public ShapeGenerator() {
 		
+		
 	}
 
 }
