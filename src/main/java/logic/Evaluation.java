@@ -4,7 +4,7 @@ import databases.CargoSpaceIndividual;
 
 public class Evaluation {
 
-	public void evaluateNumShapes(CargoSpaceIndividual aCargoSpace) {
+	public void evaluateWeightShapes(CargoSpaceIndividual aCargoSpace) {
 
 	}
 }

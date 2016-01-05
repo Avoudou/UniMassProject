@@ -4,8 +4,7 @@ import lombok.Getter;
 
 public class ShapeGenerator {
  private int shapeIdentity;
-
-
+ private int weight;
  private int[][][] aShape;
 
 	public ShapeGenerator(int xElemUnits, int yElemUnits, int zElemUnits, int identity) {
