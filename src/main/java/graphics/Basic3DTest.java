@@ -30,7 +30,7 @@ public class Basic3DTest
 
     modelBatch = new ModelBatch();
 
-    cam = new PerspectiveCamera(30, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+    cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     cam.position.set(10f, 10f, 10f);
     cam.lookAt(0f, 0f, 0f);
     cam.near = 1f;

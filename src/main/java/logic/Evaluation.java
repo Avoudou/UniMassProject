@@ -1,9 +1,10 @@
 package logic;
 
+import databases.CargoSpaceIndividual;
+
 public class Evaluation {
 
-	public Evaluation() {
-		// TODO Auto-generated constructor stub
-	}
+	public void evaluateNumShapes(CargoSpaceIndividual aCargoSpace) {
 
+	}
 }
