@@ -3,12 +3,13 @@ package databases;
 import lombok.Getter;
 
 public class ShapeGenerator {
+	@Getter
  private int shapeIdentity;
  private int weight;
  private int[][][] aShape;
 
-	public ShapeGenerator(int xElemUnits, int yElemUnits, int zElemUnits, int identity) {
-		this.aShape = new int[xElemUnits][yElemUnits][zElemUnits];
+	public ShapeGenerator(int yElemUnits, int xElemUnits, int zElemUnits, int identity) {
+		this.aShape = new int[yElemUnits][xElemUnits][zElemUnits];
 		this.shapeIdentity= identity;
 		for (int i = 0; i<aShape.length; i++)
 		{

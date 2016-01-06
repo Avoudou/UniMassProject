@@ -12,8 +12,8 @@ public class CargoSpaceIndividual {
 	@Setter
 	private double fitness;
 
-	public CargoSpaceIndividual(int xElemUnits, int yElemUnits, int zElemUnits) {
-		this.cargoSpace = new int[xElemUnits][yElemUnits][zElemUnits];
+	public CargoSpaceIndividual(int yElemUnits, int xElemUnits, int zElemUnits) {
+		this.cargoSpace = new int[yElemUnits][xElemUnits][zElemUnits];
 	}
 
 }

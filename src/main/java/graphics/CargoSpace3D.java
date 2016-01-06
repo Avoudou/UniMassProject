@@ -1,7 +1,6 @@
 package graphics;
 
 import com.badlogic.gdx.ApplicationListener;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
@@ -30,6 +29,8 @@ import com.badlogic.gdx.graphics.g3d.utils.MeshPartBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.MathUtils;
 
+import databases.CargoSpaceIndividual;
+
 /**
  /*** Copyright 2011 See AUTHORS file.
  * 
@@ -49,11 +50,26 @@ import com.badlogic.gdx.math.MathUtils;
  * @author Xoppa
  */
 
-public class Basic3DTest implements ApplicationListener {
+public class CargoSpace3D implements ApplicationListener {
 	private Environment lights;
 	private PerspectiveCamera cam;
 	private ModelBatch modelBatch;
 	private List<ModelInstance> instances;
+	private CargoSpaceIndividual cargoSpace;
+	private int GRID_MIN = 0;
+    private int GRID_MAX_X = 0;
+    private int GRID_MAX_Y = 0;
+    private int GRID_MAX_Z = 0;
+	
+	
+	
+	
+	public CargoSpace3D(CargoSpaceIndividual cargoSpace) {
+			this.cargoSpace= cargoSpace;
+			GRID_MAX_Y= cargoSpace.getCargoSpace().length-1;
+			GRID_MAX_X = cargoSpace.getCargoSpace()[0].length-1;
+			GRID_MAX_Z = cargoSpace.getCargoSpace()[0][0].length-1;
+	}
 
 
 	@Override
@@ -78,22 +94,24 @@ public class Basic3DTest implements ApplicationListener {
         
         ModelBuilder modelBuilder = new ModelBuilder();
         MeshPartBuilder builder;
-        int GRID_MIN = 0;
-        int GRID_MAX = 4;
+        
 		List<Model> models = new ArrayList<Model>();
 		instances = new ArrayList<ModelInstance>();
 
-		for (float x = GRID_MIN; x <= GRID_MAX; x += 1) {
-			for (float y = GRID_MIN; y <= GRID_MAX; y += 1) {
-				for (float z = GRID_MIN; z <= GRID_MAX; z += 1) {
+		for (float x = GRID_MIN; x <= GRID_MAX_Y; x += 1) {
+			for (float y = GRID_MIN; y <= GRID_MAX_X; y += 1) {
+				for (float z = GRID_MIN; z <= GRID_MAX_Z; z += 1) {
+					
+					if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]!=0){
 					modelBuilder.begin();
-
-					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((MathUtils.random(0, 1)+0.1f), MathUtils.random(0, 1)+0.1f, MathUtils.random(0, 1)+0.1f, 0))));
+//					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((MathUtils.random(0, 1)+0.1f), MathUtils.random(0, 1)+0.1f, MathUtils.random(0, 1)+0.1f, 0))));
+					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((0.4f), MathUtils.random(0, 1)+0.6f, 0.8f, 0))));
 					builder.setColor(Color.GREEN);
-					builder.box(x, y, z, 1f, 1f, 1f);
+					builder.box(x, y, z, .9f, .9f, .9f);
 					models.add(modelBuilder.end());
 
 					instances.add(new ModelInstance(models.get(models.size() - 1)));
+					}
 				}
 			}
 		}
