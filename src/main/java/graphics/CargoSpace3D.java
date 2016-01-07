@@ -103,20 +103,36 @@ public class CargoSpace3D implements ApplicationListener {
 				for (float z = GRID_MIN; z <= GRID_MAX_Z; z += 1) {
 					
 					if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]!=0){
-					modelBuilder.begin();
-//					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((MathUtils.random(0, 1)+0.1f), MathUtils.random(0, 1)+0.1f, MathUtils.random(0, 1)+0.1f, 0))));
-					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((0.4f), MathUtils.random(0, 1)+0.6f, 0.8f, 0))));
-					builder.setColor(Color.GREEN);
-					builder.box(x, y, z, .9f, .9f, .9f);
-					models.add(modelBuilder.end());
-
-					instances.add(new ModelInstance(models.get(models.size() - 1)));
+						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]==1){
+					drawCargoCube(modelBuilder, models, x, y, z, new Color(0.6f, .7f, .7f, 0));
+						}
+						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]==2){
+							drawCargoCube(modelBuilder, models, x, y, z, new Color(0.3f, .7f, .9f, 0));
+						}
+						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]==3){
+							drawCargoCube(modelBuilder, models, x, y, z, new Color(0.9f, .4f, .2f, 0));
+						}
+						
 					}
 				}
 			}
 		}
 		System.out.println("Done");
 
+	}
+
+
+	private void drawCargoCube(ModelBuilder modelBuilder, List<Model> models, float x, float y, float z,Color cubeColor) {
+		MeshPartBuilder builder;
+		modelBuilder.begin();
+//		builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color((MathUtils.random(0, 1)+0.1f), MathUtils.random(0, 1)+0.1f, MathUtils.random(0, 1)+0.1f, 0))));
+	
+		builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(cubeColor)));
+		builder.setColor(Color.GREEN);
+		builder.box(x, y, z, .9f, .9f, .9f);
+		models.add(modelBuilder.end());
+
+		instances.add(new ModelInstance(models.get(models.size() - 1)));
 	}
 
 	@Override
