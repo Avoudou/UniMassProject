@@ -24,9 +24,10 @@ public class MainTests3D {
 		CargoSpaceIndividual cargoSpace = new CargoSpaceIndividual(3, 3, 3);
 		FillCargo cargoLoader = new FillCargo();
 		//cargoLoader.addShape(cargoSpace, shape, 5, 5, 5);
-		cargoLoader.addShape(cargoSpace, shape2, 0, 0, 0);
-		cargoLoader.addShape(cargoSpace, shape, 0, 0, 0);
-		cargoLoader.addShape(cargoSpace, shape1, 0, 0, 0);
+		//cargoLoader.addShape(cargoSpace, shape2, 0, 0, 0);
+		//cargoLoader.addShape(cargoSpace, shape, 0, 0, 0);
+		cargoLoader.shapePlacer( 0, 0, 0,cargoSpace, shape1);
+		System.out.println(cargoLoader.collisionChecker(0, 0, 0,shape1, cargoSpace));
 
 		// System.out.println(cargoSpace.getCargoSpace()[0][0][0]);
 
