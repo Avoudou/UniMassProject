@@ -29,4 +29,8 @@ public class ShapeGenerator {
 	public int getShapeIdentity(){
 		return shapeIdentity;
 	}
+	public void setShape(int[][][] newShape) {
+		aShape=newShape;
+		
+	}
 }
