@@ -12,7 +12,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import databases.CargoSpaceIndividual;
 import databases.ShapeGenerator;
 
-public class Run3dTest {
+public class MainTests3D {
 
 	public static void main(String[] args) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -23,13 +23,14 @@ public class Run3dTest {
 		ShapeGenerator shape1 = new ShapeGenerator(1, 1, 3, 10);
 		CargoSpaceIndividual cargoSpace = new CargoSpaceIndividual(3, 3, 3);
 		FillCargo cargoLoader = new FillCargo();
-		// cargoLoader.addShape(cargoSpace, shape, 5, 5, 5);
+		//cargoLoader.addShape(cargoSpace, shape, 5, 5, 5);
 		cargoLoader.addShape(cargoSpace, shape2, 0, 0, 0);
 		cargoLoader.addShape(cargoSpace, shape, 0, 0, 0);
 		cargoLoader.addShape(cargoSpace, shape1, 0, 0, 0);
 
 		// System.out.println(cargoSpace.getCargoSpace()[0][0][0]);
 
+		//new LwjglApplication(new Shape3D(shape2), config);
 		new LwjglApplication(new CargoSpace3D(cargoSpace), config);
 
 	}

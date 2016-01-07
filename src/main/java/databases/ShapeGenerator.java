@@ -26,4 +26,7 @@ public class ShapeGenerator {
 		return aShape;
 		
 	}
+	public int getShapeIdentity(){
+		return shapeIdentity;
+	}
 }

@@ -67,8 +67,8 @@ public class Shape3D implements ApplicationListener {
 	
 	public Shape3D(ShapeGenerator aShape) {
 		this.aShape= aShape;
-		 GRID_MAX_X = aShape.getShape().length-1;
-		 GRID_MAX_Y = aShape.getShape()[0].length-1;
+		 GRID_MAX_Y = aShape.getShape().length-1;
+		 GRID_MAX_X = aShape.getShape()[0].length-1;
 		 GRID_MAX_Z = aShape.getShape()[0][0].length-1;
 	}
 
@@ -99,15 +99,15 @@ public class Shape3D implements ApplicationListener {
 		List<Model> models = new ArrayList<Model>();
 		instances = new ArrayList<ModelInstance>();
 
-		for (float x = GRID_MIN; x <= GRID_MAX_X; x += 1) {
-			for (float y = GRID_MIN; y <= GRID_MAX_Y; y += 1) {
+		for (float y = GRID_MIN; y <= GRID_MAX_Y; y += 1) {
+			for (float x = GRID_MIN; x <= GRID_MAX_X;x += 1) {
 				for (float z = GRID_MIN; z <= GRID_MAX_Z; z += 1) {
 					
-					if(aShape.getShape()[(int) x][(int) y][(int) z]!=0){
+					if(aShape.getShape()[(int) y][(int) x][(int) z]!=0){
 					modelBuilder.begin();
 					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color(0.9f, 0.4f, 0.2f, 0))));
 					builder.setColor(Color.GREEN);
-					builder.box(x, y, z, .9f, .9f, .9f);
+					builder.box(y, x, z,.9f, .9f, .9f);
 					models.add(modelBuilder.end());
 
 					instances.add(new ModelInstance(models.get(models.size() - 1)));
