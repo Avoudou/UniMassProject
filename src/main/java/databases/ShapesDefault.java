@@ -3,7 +3,7 @@ package databases;
 
 import java.util.ArrayList;
 
-public class ShapesDefault {
+public class ShapesDefault extends ShapeData {
 	
 
 	
@@ -11,13 +11,13 @@ public class ShapesDefault {
 		private ShapeGenerator shapeB = new ShapeGenerator(2,3,4,3);
 		private ShapeGenerator shapeC = new ShapeGenerator(3,3,3,1);
 		
-		public ArrayList<ShapeGenerator> shapeList = new ArrayList<ShapeGenerator>();
+		
 		
 		public ShapesDefault()
 		{
-			shapeList.add(shapeA);
-			shapeList.add(shapeB);
-			shapeList.add(shapeC);
+			super.addShape(shapeA);
+			super.addShape(shapeB);
+			super.addShape(shapeC);
 		}
 		
 	

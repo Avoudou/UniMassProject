@@ -52,7 +52,7 @@ public class FillCargo {
 				}
 			}
 		}
-		coordinates = null;
+		
 		return coordinates;
 	}
 	
