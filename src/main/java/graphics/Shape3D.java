@@ -107,7 +107,7 @@ public class Shape3D implements ApplicationListener {
 					modelBuilder.begin();
 					builder = modelBuilder.part("grid",GL20.GL_TRIANGLES,Usage.Position | Usage.Normal,new Material(ColorAttribute.createDiffuse(new Color(0.9f, 0.4f, 0.2f, 0))));
 					builder.setColor(Color.GREEN);
-					builder.box(y, x, z,.9f, .9f, .9f);
+					builder.box(y, x, z,1f, 1f, 1f);
 					models.add(modelBuilder.end());
 
 					instances.add(new ModelInstance(models.get(models.size() - 1)));

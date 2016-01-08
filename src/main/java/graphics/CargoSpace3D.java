@@ -103,7 +103,7 @@ public class CargoSpace3D implements ApplicationListener {
 				for (float z = GRID_MIN; z <= GRID_MAX_Z; z += 1) {
 					
 					if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]!=0){
-						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]!=0){
+						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]==1){
 					drawCargoCube(modelBuilder, models, x, y, z, new Color(0.6f, .7f, .7f, 0));
 						}
 						if(cargoSpace.getCargoSpace()[(int) x][(int) y][(int) z]==2){

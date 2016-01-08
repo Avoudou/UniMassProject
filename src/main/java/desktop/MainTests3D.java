@@ -20,19 +20,21 @@ public class MainTests3D {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = screenWidth;
 		config.height = screenHeight;
-		ShapeGenerator shape = new ShapeGenerator (3, 1, 1, 10);
-		ShapeGenerator shape2 = new ShapeGenerator(1, 3, 1, 10);
-		ShapeGenerator shape1 = new ShapeGenerator(1, 1, 3, 10);
-		CargoSpaceIndividual cargoSpace = new CargoSpaceIndividual(6, 6, 6);
+		ShapeGenerator shape = new ShapeGenerator (1, 1, 1, 1);
+		ShapeGenerator shape2 = new ShapeGenerator(1, 1, 1, 2);
+		ShapeGenerator shape1 = new ShapeGenerator(1, 1, 1, 3);
+		CargoSpaceIndividual cargoSpace = new CargoSpaceIndividual(2, 2, 2);
 		FillCargo cargoLoader = new FillCargo();
-		 cargoLoader.shapePlacer(2, 2, 2, cargoSpace, shape2);
-		
-		cargoLoader.shapePlacer( 0, 0, 0,cargoSpace, shape1);
+		cargoLoader.shapePlacer(0, 1, 1, cargoSpace, shape1);
+		cargoLoader.shapePlacer(0, 0, 1, cargoSpace, shape);
+		cargoLoader.shapePlacer( 0, 0, 0,cargoSpace, shape);
 		System.out.println(cargoLoader.collisionChecker(0, 0, 0,shape1, cargoSpace));
-
+		
+		
 		
 
-		new LwjglApplication(new CargoSpace3D(cargoSpace), config);
+		//new LwjglApplication(new CargoSpace3D(cargoSpace), config);
+		new LwjglApplication(new Shape3D(new ShapesDefault().getShape(2)), config);
 		
 //		ShapesDefault shapes=new ShapesDefault();
 //		CargoSpaceIndividual cargoSpace = new CargoSpaceIndividual(6, 6, 6);
